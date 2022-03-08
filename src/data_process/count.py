@@ -31,17 +31,30 @@ def collect_statistic_data(file_name, wf, trace_byte_size=32):
 
     print(len(stat))
     wf = '../../Data/raw_data/MAWI/dat/SB-F-202004090759.cnt1'
+    wf = '../../Data/raw_data/MAWI/dat/SB-G-202004080800.cnt1'
+    wf = '../../Data/raw_data/MAWI/dat/SB-F-202201021400.cnt1'
+    s = []
+    for k, v in stat.items():
+        s.append(v)
+    s.sort(reverse=True)
     with open(wf, 'w') as f:
-        for k,v in stat:
-            f.write("%d\t" % (v))
+        for v in s:
+            f.write("%d\t" % v)
 
     wf = '../../Data/raw_data/MAWI/dat/SB-F-202004090759.cnt2'
+    wf = '../../Data/raw_data/MAWI/dat/SB-G-202004080800.cnt2'
+    wf = '../../Data/raw_data/MAWI/dat/SB-F-202201021400.cnt2'
+    s = []
+    for k, v in volume.items():
+        s.append(v)
+    s.sort(reverse=True)
     with open(wf, 'w') as f:
-        for k, v in volume:
-            f.write("%d\t" % (v))
+        for v in s:
+            f.write("%d\t" % v)
     # print(count_array)
     # print(len(count_array))
-    return np.mean(count_array)
+
+    return 0
 
 
 def save_statistic_data(file_name, count_array):
@@ -50,15 +63,35 @@ def save_statistic_data(file_name, count_array):
             f.write("%d\t" % (num))
 
 
+def sort_cnt(rf):
+    # rf = '../../Data/raw_data/MAWI/dat/SB-F-202004090759.cnt2'
+    rf = '../../Data/raw_data/MAWI/dat/SB-F-202004090759.cnt1'
+    c_list = []
+    with open(rf, 'r') as f:
+        lines = f.readlines()
+        for line in lines:
+            c_list = [int(x) for x in line.split()]
+    c_list.sort(reverse=True)
+    print(c_list[:100])
+    with open(rf, 'w') as f:
+        for c in c_list:
+            f.write("%d\t" % (c))
+
+
 if __name__ == "__main__":
     # dat_file_folder = sys.argv[1]
     dat_file_folder = "../../Data/dat/"
     rf = '../../Data/raw_data/MAWI/dat/SB-F-202004090759.dat'
+    rf = '../../Data/raw_data/MAWI/dat/SB-G-202004080800.dat'
+    rf = '../../Data/raw_data/MAWI/dat/SB-F-202201021400.dat'
 
     wf = '../../Data/raw_data/MAWI/dat/SB-F-202004090759.cnt'
+    wf = '../../Data/raw_data/MAWI/dat/SB-G-202004080800.cnt'
 
     cnt_file_folder = "../../Data/cnt/"
     collect_statistic_data(rf, wf)
+    # sort_cnt('')
+
     # csv_file_folder = sys.argv[2]
     # slotList = [200, 500, 1000, 2000, 5000, 10000, 20000]
     # for slot in slotList:

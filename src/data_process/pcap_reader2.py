@@ -21,12 +21,6 @@ def pkt_parse(rf, wf):
         print("打开了pcap")
         tmp = f.read(24)
 
-        # tmp = f.read(16)
-        # print(" ".join([hex(int(i)) for i in tmp]))
-        # tmp = f.read(100)
-        # print(" ".join([hex(int(i)) for i in tmp]))
-
-        # return
         bin_trace = f.read(trace_byte_size)
         # print(" ".join([hex(int(i)) for i in bin_trace]))
         x = 0
@@ -123,15 +117,17 @@ def read_dat(rf):
 
 if __name__ == '__main__':
     rdir = "../../Data/raw_data/MAWI/SB-F/"
+    # rdir = "../../Data/raw_data/MAWI/SB-G/"
     wdir = "../../Data/raw_data/MAWI/dat/"
     wprefix = rdir[-5:-1] + "-"
     for file in os.listdir(rdir):
-        if file[-4:] == "pcap":
+        if file[-6:] == "0.pcap":
+        # if file[-4:] == "pcap":
             print("processing      :" + rdir + file)
             wname = wdir + wprefix + file[:-5] + '.dat'
             print("result write to :" + wname)
-            # pkt_parse(rdir + file, wname)
+            pkt_parse(rdir + file, wname)
             # read_pcap(rdir + file, wname)
 
     # pkt_parse()
-    read_dat('')
+    # read_dat('')

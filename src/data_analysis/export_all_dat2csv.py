@@ -10,6 +10,7 @@ def collect_statistic_data(stat, file_name, trace_byte_size=13):
         while bin_trace:
             t = dat_trace.dat_trace()
             t.init_from_binary(bin_trace)
+
             # print(t)
             # load to stat
             if t.bin_src_ip() not in stat:
