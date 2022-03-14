@@ -32,6 +32,7 @@ def collect_statistic_data(file_name, wf, trace_byte_size=32):
     print(len(stat))
     wf = '../../Data/raw_data/MAWI/dat/SB-F-202004090759.cnt1'
     wf = '../../Data/raw_data/MAWI/dat/SB-G-202004080800.cnt1'
+    wf = '../../Data/raw_data/MAWI/dat/SB-F-202201051400.cnt1'
     wf = '../../Data/raw_data/MAWI/dat/SB-F-202201021400.cnt1'
     s = []
     for k, v in stat.items():
@@ -43,6 +44,7 @@ def collect_statistic_data(file_name, wf, trace_byte_size=32):
 
     wf = '../../Data/raw_data/MAWI/dat/SB-F-202004090759.cnt2'
     wf = '../../Data/raw_data/MAWI/dat/SB-G-202004080800.cnt2'
+    wf = '../../Data/raw_data/MAWI/dat/SB-F-202201051400.cnt2'
     wf = '../../Data/raw_data/MAWI/dat/SB-F-202201021400.cnt2'
     s = []
     for k, v in volume.items():
@@ -83,6 +85,7 @@ if __name__ == "__main__":
     dat_file_folder = "../../Data/dat/"
     rf = '../../Data/raw_data/MAWI/dat/SB-F-202004090759.dat'
     rf = '../../Data/raw_data/MAWI/dat/SB-G-202004080800.dat'
+    rf = '../../Data/raw_data/MAWI/dat/SB-F-202201051400.dat'
     rf = '../../Data/raw_data/MAWI/dat/SB-F-202201021400.dat'
 
     wf = '../../Data/raw_data/MAWI/dat/SB-F-202004090759.cnt'

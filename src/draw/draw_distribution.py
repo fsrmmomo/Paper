@@ -3,9 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
-    rf = '../../Data/raw_data/MAWI/dat/SB-F-202004090759.cnt2'
-    rf = '../../Data/raw_data/MAWI/dat/SB-F-202201021400.cnt2'
-    rf = '../../Data/raw_data/MAWI/dat/SB-G-202004080800.cnt2'
+
+    rf = '../../Data/raw_data/MAWI/dat/SB-F-202201021400.cnt1'
+    rf = '../../Data/raw_data/MAWI/dat/SB-G-202004080800.cnt1'
+    rf = '../../Data/raw_data/MAWI/dat/SB-F-202004090759.cnt1'
+    rf = '../../Data/raw_data/MAWI/dat/SB-F-202201051400.cnt1'
 
     x = []
 
@@ -51,7 +53,9 @@ if __name__ == '__main__':
     plt.plot([i + 1 for i in range(len(x))], [i * 100 for i in y], 's-')
 
     # 设置标题
-    plt.title('分布')
+    titlename = rf.split('/')[-1][:4] + '分布'
+    # plt.title('SBG分布')
+    plt.title(titlename)
 
     # 设置 x 和 y 轴名称
     plt.xlabel('流数量百分比')
@@ -61,8 +65,10 @@ if __name__ == '__main__':
     for x, y in zip([i + 1 for i in range(len(x))], [i * 100 for i in y]):
         plt.text(x, y, '%.0f' % y + "%", fontdict={'fontsize': 14})
 
-    plt.xlim(1, 12)
+    plt.xlim(1, len(ox))
     plt.ylim(0, 100)
 
-    # plt.savefig("../../Data/figure/insert_reduction.png")
+    sf = '../../Data/figure/'+ rf.split('/')[-1] + '.png'
+
+    plt.savefig(sf)
     plt.show()

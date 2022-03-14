@@ -121,7 +121,8 @@ if __name__ == '__main__':
     wdir = "../../Data/raw_data/MAWI/dat/"
     wprefix = rdir[-5:-1] + "-"
     for file in os.listdir(rdir):
-        if file[-6:] == "0.pcap":
+        # if file[-6:] == "0.pcap":
+        if file == "202201051400.pcap":
         # if file[-4:] == "pcap":
             print("processing      :" + rdir + file)
             wname = wdir + wprefix + file[:-5] + '.dat'
